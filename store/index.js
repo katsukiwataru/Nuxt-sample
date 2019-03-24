@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 export default () => (new Vuex.Store({
     state: {
       items: [],
-      users: [],
+      users: {},
       userItems: {}
     },
     getters: {
@@ -16,7 +16,7 @@ export default () => (new Vuex.Store({
         state.items = items
       },
       setUser(state, { user }) {
-        state.user[user.id] = items
+        state.user[user.id] = user
       },
       setUserItems(state, { user, items }) {
         state.userItems[user.id] = items
@@ -25,7 +25,7 @@ export default () => (new Vuex.Store({
     actions: {
       async fetchItems({ commit }) {
         const items = await this.$axios.$get('https://qiita.com/api/v2/items?query=tag:nuxt.js')
-        commit('setItems',{items})
+        commit('setItems',{ items })
       },
       async fetchUserInfo({ commit }, { id }) {
         const [user, items] = await Promise.all([

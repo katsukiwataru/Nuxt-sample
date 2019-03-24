@@ -1,5 +1,12 @@
 <template>
-<section class="container">
+<div>
+  <h2>index page</h2>
+  <ul>
+    <li><nuxt-link to='/login'>ログインページヘ</nuxt-link></li>
+    <li><nuxt-link to='/authed-route'>認証が必なページへ</nuxt-link></li>
+  </ul>
+</div>
+<!-- <section class="container">
   <div>
     <h3>nuxt.js のタグが付けられた投稿の一覧</h3>
     <ul>
@@ -16,16 +23,21 @@
       </li>
     </ul>
   </div>
-</section>
+</section> -->
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
-  async asyncData({app}) {
-    const items = await app.$axios.$get('https://qiita.com/api/v2/items?query=tag:nuxt.js')
-    return {
-      items
+  async asyncData({store}) {
+    if(store.getters['items'].length) {
+      return
     }
+  await store.dispatch('fetchItems')
+  },
+  computed: {
+    ...mapGetters(['items'])
   },
 }
 </script>

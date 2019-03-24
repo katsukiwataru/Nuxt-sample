@@ -1,9 +1,10 @@
 <template>
   <div>
-    <span>defalt layout</span>
+    <span>single layout</span>
     <appNavigation />
     <hr>
     <nuxt/>
+    <nuxt-link to="/"></nuxt-link>
     <hr>
     <footer>
       footer
@@ -12,7 +13,7 @@
 </template>
 
 <script>
-import appNavigation from '~/components/appNavigation'
+import appNavigation from '~/components/appNavigation.vue'
 
 export default {
   components: {
@@ -20,6 +21,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>
