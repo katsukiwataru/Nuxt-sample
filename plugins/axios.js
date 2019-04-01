@@ -1,5 +1,5 @@
 export default function ({ $axios }) {
-  $axios.onRequest((config) => {
+  $axios.onRequest(( config ) => {
     if (process.env.QIITA_TOKEN) {
       config.headers.common['Authentication'] = process.env.QIITA_TOKEN
     }

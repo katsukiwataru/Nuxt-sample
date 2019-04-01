@@ -21,10 +21,10 @@ module.exports = {
     '@nuxtjs/axios'
   ],
   axios: {
-
   },
   plugins: [
-    '~/plugins/axios.js'
+    { src: '~/plugins/axios.js' },
+    { src: '~/plugins/logger.js' },
   ],
   env: {
     QIITA_TOKEN: process.env.QIITA_TOKEN
