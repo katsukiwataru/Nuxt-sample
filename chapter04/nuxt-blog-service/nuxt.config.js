@@ -2,7 +2,7 @@ import pkg from './package'
 
 export default {
   mode: 'universal',
-
+  srcDir: 'app',
   /*
   ** Headers of the page
   */
@@ -47,9 +47,12 @@ export default {
   /*
   ** Build configuration
   */
+  axios: {
+    baseURL: 'https://nuxt-sample-bb107.firebaseio.com',
+  },
   build: {
     transpile: [/^element-ui/],
-    
+
     /*
     ** You can extend webpack config here
     */
