@@ -1,12 +1,12 @@
 <template>
   <section class="container posts-page">
-    <el-card>
+    <el-card style="flex: 1">
       <div slot="header" class="clearfix">
-        <span>新規投稿</span>
+        <span>新着投稿</span>
       </div>
       <el-table
         :data="showPosts"
-        style="width= 100%"
+        style="width: 100%"
         class="table"
       >
         <el-table-column
@@ -15,7 +15,8 @@
         </el-table-column>
         <el-table-column
           prop="user.id"
-          label="投稿者">
+          label="投稿者"
+          width="180">
         </el-table-column>
         <el-table-column
           prop="created_at"
